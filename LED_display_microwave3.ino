@@ -1,4 +1,6 @@
 //teensy LC with LED display from microwave
+//3 modes controlled by SPDT switch in main loop
+//1) clock, 2) random segments, and 3) Frogger micro-game
 #include <NSegmentDisplay.h>
 #include <RTClib.h>
 RTC_PCF8523 rtc;
@@ -23,7 +25,7 @@ bool sw2Closed = true;
 //main state control
 byte state = 0;
 //clock tick data
-int tickTime = 1000;
+const int tickTime = 1000;
 double lastTick = 0;
 const int ticks[14][2] = {
   {3, 8}, {2, 8}, {4, 8}, {1, 8}, {0, 8}, {4, 0}, {4, 5}, {4, 4}, {4, 3}, {0, 7}, {1, 7}, {4, 7}, {2, 7}, {3, 7}
